@@ -1523,9 +1523,7 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
         snapshotView.transform = CGAffineTransformIdentity;
         [UIView animateWithDuration:0.45f delay:0.0f usingSpringWithDamping:1.0f initialSpringVelocity:0.8f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
             CGAffineTransform transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, -1);
-            //transform = CGAffineTransformScale(transform, scale, scale);
             snapshotView.transform = transform;
-//            self.snapshotAffineTransform = snapshotView.transform;
         } completion:^(BOOL complete) {
             self.backgroundContainerView.hidden = NO;
             self.foregroundContainerView.hidden = NO;
