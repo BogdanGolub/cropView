@@ -1441,7 +1441,7 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
     // Set up the transformation matrix for the rotation
     CGAffineTransform rotation = CGAffineTransformScale(self.savedAffineTransform , 1, -1);
     self.savedAffineTransform = rotation;
-    
+    self.imageTransform = rotation;
     //Work out how much we'll need to scale everything to fit to the new rotation
     CGRect contentBounds = self.contentBounds;
     CGRect cropBoxFrame = self.cropBoxFrame;
@@ -1569,7 +1569,7 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
     
     // Set up the transformation matrix for the rotation
     CGAffineTransform rotation = CGAffineTransformScale(CGAffineTransformIdentity , newFlipY ? -1 : 1, 1);
-    
+    self.imageTransform = rotation;
     //Work out how much we'll need to scale everything to fit to the new rotation
     CGRect contentBounds = self.contentBounds;
     CGRect cropBoxFrame = self.cropBoxFrame;
@@ -1717,6 +1717,7 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
     
     // Set up the transformation matrix for the rotation
     CGAffineTransform rotation = CGAffineTransformRotate(CGAffineTransformIdentity, angleInRadians);
+    self.imageTransform = rotation;
     
     //Work out how much we'll need to scale everything to fit to the new rotation
     CGRect contentBounds = self.contentBounds;

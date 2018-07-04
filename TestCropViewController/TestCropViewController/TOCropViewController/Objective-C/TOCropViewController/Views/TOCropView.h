@@ -123,6 +123,7 @@ typedef NS_ENUM(NSInteger, TOCropViewCroppingStyle) {
  */
 
 @property (nonatomic, assign) NSInteger angle;
+@property (nonatomic, assign) CGAffineTransform imageTransform;
 @property (nonatomic, assign) BOOL flipX;
 @property (nonatomic, assign) BOOL flipY;
 

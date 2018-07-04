@@ -737,7 +737,7 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
 {
     CGRect cropFrame = self.cropView.imageCropFrame;
     NSInteger angle = self.cropView.angle;
-    CGAffineTransform transform = self.cropView.transform;
+    CGAffineTransform imageTransform = self.cropView.imageTransform;
     
     //If desired, when the user taps done, show an activity sheet
     if (self.showActivitySheetOnDone) {
@@ -845,7 +845,7 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
 
     //If cropping circular and the circular generation delegate/block is implemented, call it
     if (self.croppingStyle == TOCropViewCroppingStyleCircular && (isCircularImageDelegateAvailable || isCircularImageCallbackAvailable)) {
-        UIImage *image = [self.image croppedImageWithFrame:cropFrame affineTransform:transform];
+        UIImage *image = [self.image croppedImageWithFrame:cropFrame affineTransform:imageTransform];
         //Dispatch on the next run-loop so the animation isn't interuppted by the crop operation
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.03f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             if (isCircularImageDelegateAvailable) {
@@ -865,7 +865,7 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
             image = self.image;
         }
         else {
-            image = [self.image croppedImageWithFrame:cropFrame affineTransform:transform];
+            image = [self.image croppedImageWithFrame:cropFrame affineTransform:imageTransform];
         }
         
         //Dispatch on the next run-loop so the animation isn't interuppted by the crop operation
